@@ -1,5 +1,17 @@
 # Project Test for doxker symfony with DB and manager db
 
+## Proxy
+```
+* cd /docker/nginx-proxy
+* docker create network nginx-proxy
+* docker-compose up -d
+```
+
+## Configuration finally for hosts
+In the file hosts, add the lines who follow
+127.0.0.1     test-web.com
+127.0.0.1     db.test-web.com
+
 ## Docker
 For docker, create the file docker.env at the root project and add this variables
 * MYSQL_ROOT_PASSWORD=
@@ -15,7 +27,7 @@ The password of user who correspond at the same name in database_url in file .en
 Create file .env.local and paste the content of file .env and replace the url database
 
 ## Execut the application
-Run this command :
+Run this command in the root project:
 ```
 * docker-compose up -d
 ```
