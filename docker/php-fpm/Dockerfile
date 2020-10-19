@@ -5,8 +5,11 @@ RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libpng-dev \
+        libzip-dev \
+        zip \
     && docker-php-ext-install \
-        pdo_mysql
+        pdo_mysql \
+        zip
 
 # Install Composer
 RUN curl --insecure https://getcomposer.org/composer.phar -o /usr/bin/composer && chmod +x /usr/bin/composer
