@@ -1,9 +1,14 @@
-###############################################################################
-#                          Generated on phpdocker.io                          #
-###############################################################################
 version: "3.1"
 
 services:
+    mailhog:
+      image: mailhog/mailhog:latest
+      environment:
+        - VIRTUAL_HOST=mail.test-web.com
+        - VIRTUAL_PORT=8025
+      networks:
+        - nginx-proxy
+
     mariadb:
       image: mariadb
       container_name: mariadb
