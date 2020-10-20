@@ -3,6 +3,7 @@ version: "3.1"
 services:
     mailhog:
       image: mailhog/mailhog:latest
+      container_name: mailhog
       environment:
         - VIRTUAL_HOST=mail.test-web.com
         - VIRTUAL_PORT=8025
@@ -20,6 +21,7 @@ services:
 
     adminer:
       image: adminer
+      container_name: adminer
       restart: always
       environment:
         - VIRTUAL_HOST=db.test-web.com
