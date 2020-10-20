@@ -19,4 +19,9 @@ RUN apt-get update \
     && apt-get -y install git \
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
+
+ADD entrypoint.dev.sh /docker-entrypoint.sh
+RUN chmod a+x /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
 WORKDIR "/var/www/web"
