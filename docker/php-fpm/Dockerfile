@@ -3,6 +3,7 @@ FROM php:7.4-fpm
 # Install selected extensions and other stuff
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
+        dos2unix \
         libjpeg62-turbo-dev \
         libpng-dev \
         libzip-dev \
@@ -40,6 +41,7 @@ RUN apt-get update \
 
 
 ADD entrypoint.dev.sh /docker-entrypoint.sh
+RUN dos2unix /docker-entrypoint.sh
 RUN chmod a+x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
