@@ -40,6 +40,7 @@ RUN apt-get update \
     && apt-get -y install git \
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
+EXPOSE 9000
 
 ADD entrypoint.dev.sh /docker-entrypoint.sh
 RUN dos2unix /docker-entrypoint.sh
