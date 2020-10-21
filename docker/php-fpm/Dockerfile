@@ -18,10 +18,11 @@ RUN apt-get update && apt-get install -y \
 	      libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 \
 	      libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates \
         chromium \
-	      fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget \
-    && docker-php-ext-install \
-        pdo_mysql \
-        zip
+	      fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget 
+
+COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
+
+RUN install-php-extensions gd xdebug soap pdo_mysql zip pcov apcu
 
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/chrome.deb
 RUN dpkg -i /tmp/chrome.deb || apt-get install -yf
