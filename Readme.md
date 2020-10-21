@@ -9,8 +9,10 @@
 
 ## Configuration finally for hosts
 In the file hosts, add the lines who follow
+```
 127.0.0.1     test-web.com
 127.0.0.1     db.test-web.com
+```
 
 ## Docker
 For docker, create the file docker.env at the root project and add this variables
