@@ -35,7 +35,7 @@ services:
       container_name: webserver
       working_dir: /var/www/web
       environment:
-        - VIRTUAL_HOST=test-web.com
+        - VIRTUAL_HOST=test-web.com, admin.test-web.com
       volumes:
           - .:/var/www/web
           - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
